@@ -16,3 +16,9 @@ h2 {
 .highlight {
   color: #ff8ae6; 
 }
+
+#special {
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
