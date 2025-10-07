@@ -38,6 +38,8 @@ function validateEmail(){
   const status = document.getElementById("status").value;
 }
 
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 if (input.length === 0) {
     status.textContent = "Please enter an email.";
     status.className = "fail";
