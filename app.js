@@ -38,7 +38,7 @@ function validateEmail(){
   const status = document.getElementById("status").value;
 }
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
 if (input.length === 0) {
     status.textContent = "Please enter an email.";
@@ -51,5 +51,35 @@ if (input.length === 0) {
     status.textContent = "Invalid email format.";
     status.className = "fail";
   }
+
+emailInput.addEventListener('input', function () {
+  const email = emailInput.value.trim();
+  if (email.length > 0 && !validateEmail(email)){
+    status.textContent = "email is invalid";
+    status.className = "fail";
+  } else {
+    status.textContent = " ";
+    status.className = " ";
+  });
+
+resetBtn.addEventListener('click', function () {
+  emailInput.value = " ";
+  status.textContent = " ";
+  status.className = " ";
+});
+
+funtion validateEmail(email){
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return pattern.test(email);
 }
+  
+  
+
+
+
+
+
+                            
+                            
+    
   
