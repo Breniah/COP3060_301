@@ -71,9 +71,45 @@ resetBtn.addEventListener('click', function () {
 funtion validateEmail(email){
   const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return pattern.test(email);
+});
+
+const loadBtn = document.getElementById("loadBtn");
+const results = document.getElementById("results");
+const filterBtn = document.getElementById("filterBtn");
+
+let dataCache = [];
+
+async function fetchData(){
+  results.textContent = "Loading....";
+  try{
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await re.json();
+    usersData = data;
+    showUsers(data);
+  } catch (err) {
+    results.textContent = " error loading data.";
+  }
 }
-  
-  
+
+function showUsers(list){
+  results.innerHTML = list
+  .slice (0,10)
+  .map(user => `<p>${user.name} - ${user.name}</p>`)
+  .join(" ");
+}
+
+function sortUsers() {
+  const sorted = [.......usersData].sort((a,b) => a.name.localeCompare(b.name));
+  showUsers(sorted);
+}
+
+loadBtn.addEventListener("click", loadData);
+filterBtn.addEventListener("click", sortUsers);
+
+
+
+
+
 
 
 
