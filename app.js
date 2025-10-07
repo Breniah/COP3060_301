@@ -7,7 +7,7 @@ const age = "21";
 console.log("Age: ",age);
 const isMember = true;
 console.log("Am i a member: ",isMember);
-const hobbies = ["reading", "hiking", "gym"];
+const hobbies = ["reading", "hiking", "gym", "swimming", "cooking", "coding"];
 console.log("Hobbies: ",hobbies);
 const user = {id:1, role: "admin"};
 console.log("User Info: ",user);
@@ -24,3 +24,30 @@ if (isMember && age > 20){
   console.log("You're close to my age");
 }else {
   console.log("You're ALOT younger than me BYEEEE");
+}
+
+const list = document.getElementById("hobbyList");
+for (let i = 0; i < hobbies.length; i++) {
+  const li = document.createElement("li");
+  li.textContent = hobbies[i];
+  list.appendChild(li);
+}
+
+function validateEmail(){
+  const input = document.getElementById("emailInput").value;
+  const status = document.getElementById("status").value;
+}
+
+if (input.length === 0) {
+    status.textContent = "Please enter an email.";
+    status.className = "fail";
+
+  } else if (emailPattern.test(input)) {
+    status.textContent = "Valid email!";
+    status.className = "pass";
+  } else {
+    status.textContent = "Invalid email format.";
+    status.className = "fail";
+  }
+}
+  
